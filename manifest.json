@@ -1,0 +1,9 @@
+{
+    "name": "Zork III: Mobile",
+    "short_name": "Zork III",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#000000",
+    "theme_color": "#1c1c1e",
+    "orientation": "portrait"
+}
