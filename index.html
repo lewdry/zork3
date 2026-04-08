@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, interactive-widget=resizes-content">
+    <title>Zork III: Mobile</title>
+
+    <!-- Apple PWA Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Zork III">
+    <meta name="theme-color" content="#1c1c1e">
+
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+    <div class="phone-container">
+        <div class="status-bar">
+            <span class="time">9:41</span>
+            <div class="status-icons">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-full"></i>
+            </div>
+        </div>
+
+        <div class="app-header">
+            <div class="avatar-container">
+                <div class="avatar">Z</div>
+            </div>
+            <div class="contact-info">
+                <div class="name">Zork III: Mobile</div>
+                <div class="status">Online</div>
+            </div>
+            <div class="header-actions">
+                <i class="fas fa-sync-alt" id="restart-btn" style="cursor: pointer;"></i>
+                <i class="fas fa-save" id="save-btn" style="cursor: pointer;"></i>
+                <i class="fas fa-phone" id="tts-btn" style="cursor: pointer;"></i>
+            </div>
+        </div>
+
+        <div class="message-area" id="message-area">
+            <div class="date-divider">Today</div>
+            <!-- Messages will be injected here -->
+        </div>
+
+        <!-- Scroll to bottom FAB -->
+        <button class="scroll-fab hidden" id="scroll-fab" aria-label="Scroll to bottom">
+            <i class="fas fa-chevron-down"></i>
+        </button>
+
+        <div class="input-area">
+            <form id="input-form">
+                <input type="text" id="command-input" placeholder="Message..." autocomplete="off" autocapitalize="none"
+                    autocorrect="off" spellcheck="false" inputmode="text">
+                <button type="submit" class="send-btn"><i class="fas fa-arrow-up"></i></button>
+            </form>
+        </div>
+
+        <div class="home-indicator"></div>
+    </div>
+
+    <script src="jszm.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

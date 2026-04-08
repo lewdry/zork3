@@ -1,5 +1,25 @@
-# Zork III Source Code Collection
+# Zork III: Mobile
 
+A modern, mobile-first web adaptation of the classic interactive fiction game **ZORK III: The Dungeon Master**.
+
+## About
+This project reimagines the classic text adventure interface as a modern messaging app. It runs entirely in the browser using the **JSZM** interpreter to execute the original Z-machine story file.
+
+Developed with a focus on responsiveness, accessibility, and a premium mobile experience.
+
+## Features
+- **Modern UI**: Chat-bubble interface with responsive design.
+- **Mobile Optimized**: Full-screen experience, safe-area handling, and virtual keyboard support.
+- **Text-to-Speech**: Integrated Web Speech API to read game output aloud with a retro "beep" indicator.
+- **Auto-Save**: Seamless save/load functionality using LocalStorage.
+- **Real-time Clock**: Status bar synced to your device time.
+
+## Technology
+- **Engine**: [JSZM](https://www.ifwiki.org/JSZM) (JavaScript Z-Machine Interpreter)
+- **Frontend**: Vanilla JavaScript, HTML5, CSS3
+- **Audio**: Web Audio API (procedural sound generation) & Web Speech API
+
+## Source Code
 Zork III: The Dungeon Master is a 1982 interactive fiction game written by Marc Blank, Dave Lebling, Bruce Daniels, and Tim Anderson and published by Infocom.
 
 Further information on Zork III:
@@ -10,25 +30,18 @@ Further information on Zork III:
 * [The Infocom Gallery](https://gallery.guetech.org/zork3/zork3.html)
 * [IFWiki](http://www.ifwiki.org/index.php/Zork_III)
 
-__What is this Repository?__
+The ZIL source code in this repository is a directory of files for the Infocom game "Zork III", including a variety of files both used and discarded in the production of the game. It is written in ZIL (Zork Implementation Language), a refactoring of MDL (Muddle), itself a dialect of LISP created by MIT students and staff.
 
-This repository is a directory of source code for the Infocom game "Zork III", including a variety of files both used and discarded in the production of the game. It is written in ZIL (Zork Implementation Language), a refactoring of MDL (Muddle), itself a dialect of LISP created by MIT students and staff.
+## Credits & License
+**Developer**: Lewis Dryburgh
 
-The source code was contributed anonymously and represents a snapshot of the Infocom development system at time of shutdown - there is no remaining way to compare it against any official version as of this writing, and so it should be considered canonical, but not necessarily the exact source code arrangement for production.
+**Disclaimer**:
+This is an **unofficial fan project**. It is not affiliated with, endorsed by, or connected to Infocom, Activision, or any other trademark holders of the Zork franchise.
 
-__Basic Information on the Contents of This Repository__
+**Source Code**:
+The Z-Machine interpreter source code is provided under the **MIT License (Microsoft, 2025)** (see `LICENSE-ZORK`).
+The frontend web wrapper and UI code is provided under the **MIT License (Lewis Dryburgh, 2026)** (see `LICENSE-FRONTEND`).
 
-It is mostly important to note that there is currently no known way to compile the source code in this repository into a final "Z-machine Interpreter Program" (ZIP) file. There are .ZIP files in some of the Infocom Source Code repositories but they were there as of final spin-down of the Infocom Drive and the means to create them is currently lost.
-
-Throughout its history, Infocom used a TOPS20 mainframe with a compiler (ZILCH) to create and edit language files - this repository is a mirror of the source code directory archive of Infocom but could represent years of difference from what was originally released.
-
-In general, Infocom games were created by taking previous Infocom source code, copying the directory, and making changes until the game worked the way the current Implementor needed. Structure, therefore, tended to follow from game to game and may or may not accurately reflect the actual function of the code.
-
-There are also multiple versions of the "Z-Machine" and code did change notably between the first years of Infocom and a decade later. Addition of graphics, sound and memory expansion are all slowly implemented over time.
-
-__What is the Purpose of this Repository__
-
-This collection is meant for education, discussion, and historical work, allowing researchers and students to study how code was made for these interactive fiction games and how the system dealt with input and processing. 
-
-Researchers are encouraged to share their discoveries about the information in this source code and the history of Infocom and its many innovative employees.
+*ZORK is a registered trademark of Infocom, Inc.*
+*Original Game © 1982-1986 Infocom, Inc.*
 
