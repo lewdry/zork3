@@ -145,8 +145,7 @@ JSZM.prototype={
         ts=4;
       } else if(ts==4) {
         y+=v;
-        if(y==13) o+="
-";
+        if(y==13) o+="\n";
         else if(y) o+=String.fromCharCode(y);
         ts=ps;
       } else if(ts==5) {
@@ -164,8 +163,7 @@ JSZM.prototype={
       } else if(v==6 && ts==2) {
         ts=3;
       } else {
-        o+="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ*
-0123456789.,!?_#'\"/\-:()"[ts*26+v-6];
+        o+="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ*\n0123456789.,!?_#'\"/\\-:()"[ts*26+v-6];
         ts=ps;
       }
     };
@@ -188,7 +186,7 @@ JSZM.prototype={
     for(i=0;i<str.length;i++) this.mem[t1+i+1]=str.charCodeAt(i);
     this.mem[t1+str.length+1]=0;
     // Lex text
-    w=x=>(i=0,x.split("").filter(y => (i+=/[a-z]/.test(y)?1:/[0-9.,!?_#'"\/\:\-()]/.test(y)?2:4)<7).join(""));
+    w=x=>(i=0,x.split("").filter(y => (i+=/[a-z]/.test(y)?1:/[0-9.,!?_#'"\/\\:\-()]/.test(y)?2:4)<7).join(""));
     br=JSON.parse("["+str.replace(this.regBreak,(m,o)=>",["+(m.length)+","+(this.vocabulary.get(w(m))||0)+","+(o+1)+"]").slice(1)+"]");
     i=this.mem[t2+1]=br.length;
     while(i--) {
@@ -205,7 +203,7 @@ JSZM.prototype={
     this.vocabulary=new Map();
     
     if (s === 0) {                                    // If the story file does not contain a dictionary..
-      this.regBreak=new RegExp("[^ \n\t]+","g");    //   use the default word separators
+      this.regBreak=new RegExp("[^ \\n\\t]+","g");    //   use the default word separators
       return;                                         //   and early exit.
     }
 
@@ -213,8 +211,8 @@ JSZM.prototype={
     var n;
     n=this.mem[s++];
     e=this.selfInsertingBreaks=String.fromCharCode(...this.mem.slice(s,s+n));
-    e=e.split("").map(x=>(x.toUpperCase()==x.toLowerCase()?"":"\")+x).join("")+"]";
-    this.regBreak=new RegExp("["+e+"|[^ \n\t"+e+"+","g");
+    e=e.split("").map(x=>(x.toUpperCase()==x.toLowerCase()?"":"\\")+x).join("")+"]";
+    this.regBreak=new RegExp("["+e+"|[^ \\n\\t"+e+"+","g");
     s+=n;
     e=this.mem[s++];
     n=this.get(s);
@@ -531,8 +529,7 @@ JSZM.prototype={
           pc=this.endText;
           break;
         case 179: // PRINTR
-          yield*this.genPrint(this.getText(pc)+"
-");
+          yield*this.genPrint(this.getText(pc)+"\n");
           ret(1);
           break;
         case 180: // NOOP
@@ -561,8 +558,7 @@ JSZM.prototype={
         case 186: // QUIT
           return;
         case 187: // CRLF
-          yield*this.genPrint("
-");
+          yield*this.genPrint("\n");
           break;
         case 188: // USL
           if(this.updateStatusLine) yield*this.updateStatusLine(this.getText(this.getu(objects+xfetch(16)*9+7)+1),xfetch(18),xfetch(17));
@@ -601,8 +597,7 @@ JSZM.prototype={
           this.handleInput(yield*this.read(mem[op0&65535]),op0&65535,op1&65535);
           break;
         case 229: // PRINTC
-          yield*this.genPrint(op0==13?"
-":op0?String.fromCharCode(op0):"");
+          yield*this.genPrint(op0==13?"\n":op0?String.fromCharCode(op0):"");
           break;
         case 230: // PRINTN
           yield*this.genPrint(String(op0));
