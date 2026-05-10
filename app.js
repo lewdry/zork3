@@ -261,8 +261,8 @@ const init = async () => {
     console.log("Initializing Zork III: Mobile...");
 
     try {
-        const response = await fetch('COMPILED/zork3.z3');
-        if (!response.ok) throw new Error("Failed to load zork3.z3");
+        const response = await fetch('ZORK.Z3');
+        if (!response.ok) throw new Error("Failed to load ZORK.Z3");
         const buffer = await response.arrayBuffer();
 
         jszm = new JSZM(new Uint8Array(buffer));
